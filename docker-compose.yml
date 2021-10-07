@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/app/backend
+    ports:
+      - 8000:8000
+    stdin_open: true
+    tty: true
+    depends_on:
+      - mongo_db
+    links:
+      - mongo_db
+      - redis_db
+    environment:
+      - DJANGO_SETTINGS_MODULE=core.settings.dev
+
+  mongo_db:
+    image: mongo
+    restart: unless-stopped
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: chatongo_db
+
+  redis_db:
+    image: redis:alpine
+    restart: unless-stopped
+    volumes:
+      - redisdata:/data/redis
+    ports:
+      - 6379:6379
+
+volumes:
+  mongodata:
+  redisdata:

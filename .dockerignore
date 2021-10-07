@@ -1,0 +1,14 @@
+# Frontend
+client
+
+# Dev stuff
+.github
+.git
+.gitignore
+venv
+.venv
+README.md
+.vscode
+.idea
+node_modules
+db.sqlite3
