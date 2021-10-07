@@ -101,10 +101,13 @@ if os.environ.get('GITHUB_WORKFLOW'):
         'default': {
             'ENGINE': 'djongo',
             'NAME': 'test',
-            'HOST': 'mongo_db',
-            'PORT': 27017,
-            'USER': 'test',
-            'PASSWORD': 'password',
+            'CLIENT': {
+                'host': "mongodb://mongo_db:27017",
+                'username': "test",
+                'password': "password",
+                "authSource": "admin",
+                "authMechanism": "SCRAM-SHA-1",
+            },
         }
     }
 # SQLite database if not using Docker for development
