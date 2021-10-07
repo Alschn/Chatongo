@@ -97,19 +97,7 @@ REST_FRAMEWORK = {
 
 # Github actions database
 if os.environ.get('GITHUB_WORKFLOW'):
-    DATABASES = {
-        'default': {
-            'ENGINE': 'djongo',
-            'NAME': 'test',
-            'CLIENT': {
-                'host': "mongodb://mongo_db:27017",
-                'username': "test",
-                'password': "password",
-                "authSource": "admin",
-                "authMechanism": "SCRAM-SHA-1",
-            },
-        }
-    }
+    DATABASES = {}
 # SQLite database if not using Docker for development
 else:
     DATABASES = {
