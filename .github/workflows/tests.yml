@@ -49,7 +49,7 @@ jobs:
           cd backend
           coverage report -m
 
-  test-frontend:
+  test-client:
     runs-on: ubuntu-latest
 
     strategy:
@@ -65,9 +65,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: |
-          cd frontend
+          cd client
           npm install
       - name: Run tests
         run: |
-          cd frontend
+          cd client
           npm test -- --coverage
