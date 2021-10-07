@@ -110,7 +110,7 @@ if os.environ.get('GITHUB_WORKFLOW'):
             },
         }
     }
-# SQLite database if not using Docker for development
+# MongoDB run locally (not in Docker container)
 else:
     DATABASES = {
         'default': {

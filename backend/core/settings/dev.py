@@ -13,6 +13,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["backend", "localhost", "127.0.0.1"]
 
+# MongoDB in a docker container
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
@@ -27,7 +28,7 @@ DATABASES = {
     }
 }
 
-
+# Redis in a docker container
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
