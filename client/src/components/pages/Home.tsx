@@ -17,6 +17,10 @@ const Homepage: FC = () => {
         <a href="/#register" className="App-link">
           Register
         </a>
+
+        <a href="/#profile/test" className="App-link">
+          Profile test
+        </a>
       </header>
     </div>
   );
