@@ -1,6 +1,6 @@
-import "./Home.scss";
 import { FC } from "react";
-import logo from "../../static/logo.svg";
+import logo from "../../assets/logo.svg";
+import "./Home.scss";
 
 const Homepage: FC = () => {
   return (
