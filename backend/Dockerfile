@@ -11,8 +11,8 @@ RUN  \
     apk upgrade && \
     apk add bash && \
     apk add postgresql-libs && \
-    apk add --virtual .build-deps gcc musl-dev postgresql-dev && \
-    apk add libressl-dev musl-dev libffi-dev cargo && \
+    apk add --virtual .build-deps gcc musl-dev && \
+    apk add libressl-dev libffi-dev cargo && \
     pip3 install --upgrade pip -r requirements.txt && \
     apk --purge del .build-deps
 
