@@ -14,11 +14,11 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     async def connect(self):
         if not (user := self.scope.get('user')) or user.is_anonymous:
-            await self.reject()
+            await self.close()
 
         self.chat_name = self.scope['url_route']['kwargs']['chat_name']
-        self.chat_group_name = f'chat_{self.chat_name}'     # Group for all users in the chat
-        self.private_group_name = f"chat_user_{user.username}"      # Group for each individual client 
+        self.chat_group_name = f'chat_{self.chat_name}'  # Group for all users in the chat
+        self.private_group_name = f"chat_user_{user.username}"  # Group for each individual client
 
         # public room
         await self.channel_layer.group_add(
@@ -59,7 +59,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     'data': data.get('data'),
                 }
             )
-
 
     async def disconnect(self, code):
         await self.channel_layer.group_discard(
