@@ -6,7 +6,7 @@ services:
     volumes:
       - ./backend:/app/backend
     ports:
-      - 8000:8000
+      - "8000:8000"
     stdin_open: true
     tty: true
     depends_on:
@@ -19,11 +19,10 @@ services:
 
   mongo_db:
     image: mongo
-    restart: unless-stopped
     volumes:
       - mongodata:/data/db
     ports:
-      - 27017:27017
+      - "27017:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin
@@ -31,11 +30,10 @@ services:
 
   redis_db:
     image: redis:alpine
-    restart: unless-stopped
     volumes:
       - redisdata:/data/redis
     ports:
-      - 6379:6379
+      - "6379:6379"
 
 volumes:
   mongodata:
