@@ -1,15 +1,18 @@
-import { FC } from "react";
-import { useParams } from "react-router";
-import useWebSocket, { ReadyState } from "react-use-websocket";
+import {FC} from "react";
+import {useParams} from "react-router";
+import {Box, Link} from "@chakra-ui/react";
 
 interface ProfileParams {
   profile_id: string;
 }
 
 const Profile: FC = () => {
-  const { profile_id } = useParams<ProfileParams>();
+  const {profile_id} = useParams<ProfileParams>();
 
-  return <div>Profile page {profile_id}</div>;
+  return <Box>
+    <Link href="/#">Home</Link>
+    Profile page {profile_id}
+  </Box>;
 };
 
 export default Profile;

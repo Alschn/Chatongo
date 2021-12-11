@@ -1,7 +1,8 @@
-import React, { FC, useState } from "react";
-import { useHistory } from "react-router";
+import React, {FC, useState} from "react";
+import {useHistory} from "react-router";
 import AxiosClient from "../../api/axiosClient";
-import { API_ROUTE } from "../../config";
+import {API_ROUTE} from "../../config";
+import {Box, Button, Input, Link} from "@chakra-ui/react";
 import "./LoginRegister.scss";
 
 const Login: FC = () => {
@@ -38,24 +39,24 @@ const Login: FC = () => {
   };
 
   return (
-    <div>
-      Login <a href="/#">Back</a>
-      <div>
-        <input
+    <Box>
+      Login <Link href="/#">Back</Link>
+      <Box>
+        <Input
           type="text"
           value={username}
           id="username"
           onChange={handleChange}
         />
-        <input
+        <Input
           type="password"
           value={password}
           id="password"
           onChange={handleChange}
         />
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
-    </div>
+        <Button onClick={handleSubmit}>Submit</Button>
+      </Box>
+    </Box>
   );
 };
 

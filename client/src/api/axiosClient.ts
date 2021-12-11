@@ -6,14 +6,13 @@ const AxiosClient = axios.create({
 
 AxiosClient.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
-  const conf = {
+  return {
     ...config,
     headers: {
       ...config.headers,
       Authorization: token ? `Token ${token}` : "",
     },
   };
-  return conf;
 });
 
 export default AxiosClient;

@@ -1,28 +1,31 @@
-import { FC } from "react";
+import {FC} from "react";
 import logo from "../../assets/logo.svg";
+import {Box, Image, Link, Text} from "@chakra-ui/react";
 import "./Home.scss";
 
 const Homepage: FC = () => {
   return (
-    <div className="App">
+    <Box className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <Image src={logo} className="App-logo" alt="logo"/>
+
+        <Text as="p">
           Edit <code>src/App.js</code> and save to reload.
-        </p>
+        </Text>
 
-        <a href="/#login" className="App-link">
+        <Link href="/#login" className="App-link">
           Login
-        </a>
-        <a href="/#register" className="App-link">
-          Register
-        </a>
+        </Link>
 
-        <a href="/#profile/test" className="App-link">
+        <Link href="/#register" className="App-link">
+          Register
+        </Link>
+
+        <Link href="/#profile/test" className="App-link">
           Profile test
-        </a>
+        </Link>
       </header>
-    </div>
+    </Box>
   );
 };
 
