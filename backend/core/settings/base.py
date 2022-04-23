@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # documentation
     'drf_yasg',
     # apps
+    'core',
     'chats',
     'users',
 ]
